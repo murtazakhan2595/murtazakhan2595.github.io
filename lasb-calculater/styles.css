@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    /* width: 300px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container input {
+    width: fit-content;
+    margin-bottom: 10px;
+    padding: 10px 5px;
+    font-size: 20px;
+}
+
+.container .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.calculator .buttons button {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+.calculator .buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+ .submenu {
+    display: none;
+    border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+ .submenu button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.menu-btn {
+    width: 100%;
+}
+.scientific-operations {
+  display: none;
+  margin-bottom: 10px;
+}
+
+/* .scientific-operations button {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #f0f0f0;
+} */
+
+.scientific-operations button:hover {
+  background-color: #e0e0e0;
+}
+
+
+.converter{
+  display: none;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.converter button{
+  padding: 5px 2px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+
+/* Add currency converter styles here */
+.currency-converter {
+  display: none;
+}
+.currency-converter input,
+.currency-converter select,
+.currency-converter button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.currency-converter button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.currency-converter button:hover {
+  background-color: #0056b3;
+}

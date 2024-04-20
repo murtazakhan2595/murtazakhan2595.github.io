@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calculator container" id="calculator">
+      <input type="text" id="result" readonly />
+      <div id="scientific-operations" class="scientific-operations buttons">
+        <button onclick="calculateSquareRoot()">√</button>
+        <button onclick="calculatePower()">x<sup>y</sup></button>
+        <button onclick="calculateSin()">sin</button>
+        <button onclick="calculateCos()">cos</button>
+        <button onclick="calculateTan()">tan</button>
+      </div>
+      <div class="buttons">
+        <button onclick="appendToResult('1')">1</button>
+        <button onclick="appendToResult('2')">2</button>
+        <button onclick="appendToResult('3')">3</button>
+        <button onclick="appendToResult('+')">+</button>
+        <button onclick="appendToResult('4')">4</button>
+        <button onclick="appendToResult('5')">5</button>
+        <button onclick="appendToResult('6')">6</button>
+        <button onclick="appendToResult('-')">-</button>
+        <button onclick="appendToResult('7')">7</button>
+        <button onclick="appendToResult('8')">8</button>
+        <button onclick="appendToResult('9')">9</button>
+        <button onclick="appendToResult('*')">*</button>
+        <button onclick="appendToResult('0')">0</button>
+        <button onclick="appendToResult('.')">.</button>
+        <button onclick="clearResult()">C</button>
+        <button onclick="calculate()">=</button>
+        <button class="menu-btn" onclick="toggleMenu()">...</button>
+      </div>
+     
+    </div>
+    <div id="converter" class="converter container">
+      <div>
+        <h2>Unit Conversion Calculator</h2>
+      <label for="value">Value:</label>
+      <input type="number" id="value" placeholder="Enter value" />
+      </div>
+
+      <div>
+        <label for="from">From:</label>
+      <select id="from">
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="inch">Inch (inch)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+      </select>
+      </div>
+
+      <div>
+        <label for="to">To:</label>
+      <select id="to">
+        <option value="cm">Centimeter (cm)</option>
+        <option value="m">Meter (m)</option>
+        <option value="km">Kilometer (km)</option>
+        <option value="inch">Inch (inch)</option>
+        <option value="ft">Foot (ft)</option>
+        <option value="yd">Yard (yd)</option>
+      </select>
+      </div>
+
+      <button onclick="convert()">Convert</button>
+
+      <p id="convert-result" style="text-align: center;"></p>
+      <button class="menu-btn" onclick="toggleMenu()">...</button>
+    </div>
+    <!-- Add this section after the calculator and unit converter sections -->
+<div id="currency-converter" class="currency-converter container">
+  <div>
+    <h2>Currency Converter</h2>
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" placeholder="Enter amount" />
+    </div>
+    <div>
+      <label for="fromCurrency">From Currency:</label>
+      <select id="fromCurrency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <div>
+      <label for="toCurrency">To Currency:</label>
+      <select id="toCurrency">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <!-- Add more options as needed -->
+      </select>
+    </div>
+    <button onclick="convertCurrency()">Convert</button>
+    <p id="currency-result" style="text-align: center;"></p>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()">...</button>
+</div>
+
+     <div id="submenu" class="submenu">
+        <button onclick="toggleSimpleMode()">Simple Arithmetic</button>
+        <button onclick="toggleScientificMode()">Scientific Mode</button>
+        <button onclick="toggleUnitConversion()">Unit Conversion</button>
+        <button onclick="toggleCurrencyConversion()">
+          Currency Conversion
+        </button>
+      </div>
+    <script src="script.js"></script>
+  </body>
+</html>
