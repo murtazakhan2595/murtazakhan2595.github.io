@@ -2,57 +2,61 @@
 // db4d2433cf454ee7a531eb34ba71a837;
 
 var apiUrl =
-  "https://newsdata.io/api/1/news?apikey=pub_43115fdfa0bd3ab65d9b674f3672cf152f315";
+  "https://newsapi.org/v2/top-headlines?country=us&apiKey=db4d2433cf454ee7a531eb34ba71a837";
 
 async function fetchNews() {
   console.log("fetching news ...")
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
-    return data.results;
+    return data.articles.filter((article) => !isRemovedArticle(article));
+    // return data.articles;
   } catch (error) {
     console.error("Error fetching news:", error);
     return [];
   }
 }
 
-
-function renderArticles(articles) {
-  const newsContainer = document.getElementById("news-container");
-  newsContainer.innerHTML = ""; // Clear previous content
-  articles.forEach((article) => {
-    console.log(article)
-    const articleDiv = document.createElement("div");
-    articleDiv.classList.add("article");
-
-    const title = document.createElement("h2");
-    title.textContent = article.title;
-
-    const description = document.createElement("p");
-    description.textContent = article.description;
-
-    // Check if image URL is available
-    if (article.image_url) {
-      const image = document.createElement("img");
-      image.src = article.image_url;
-      image.alt = article.title;
-      articleDiv.appendChild(image);
-    }
-
-    const link = document.createElement("a");
-    link.href = article.link;
-    link.textContent = "Read more";
-
-    articleDiv.appendChild(title);
-    articleDiv.appendChild(description);
-    articleDiv.appendChild(link);
-
-    newsContainer.appendChild(articleDiv);
-  });
+function isRemovedArticle(article) {
+  return (
+    article.source.name === "[Removed]" ||
+    !article.title ||
+    !article.description
+  );
 }
-
+// Example usage
 fetchNews()
   .then((articles) => {
-    renderArticles(articles);
+    const newsContainer = document.getElementById("news-container");
+    newsContainer.innerHTML = ""; 
+    articles.forEach((article) => {
+      console.log(article)
+      const articleDiv = document.createElement("div");
+      articleDiv.classList.add("article");
+
+      const title = document.createElement("h2");
+      title.textContent = article.title;
+
+      const description = document.createElement("p");
+      description.textContent = article.description;
+
+      const image = document.createElement("img");
+      image.src = article.urlToImage;
+      image.alt = article.title;
+
+      const link = document.createElement("a");
+      link.href = article.url;
+      link.textContent = "Read more";
+
+      articleDiv.appendChild(title);
+      articleDiv.appendChild(image);
+      articleDiv.appendChild(description);
+      articleDiv.appendChild(link);
+
+      newsContainer.appendChild(articleDiv);
+    });
+
+
+
   })
   .catch((error) => console.error(error));
