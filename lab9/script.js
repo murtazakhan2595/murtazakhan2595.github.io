@@ -11,9 +11,7 @@ function w3_close() {
 // db4d2433cf454ee7a531eb34ba71a837;
 
 var apiUrl =
-  "https://newsapi.org/v2/top-headlines?" +
-  "country=us&" +
-  "apiKey=db4d2433cf454ee7a531eb34ba71a837";
+  "https://newsapi.org/v2/top-headlines?country=us&apiKey=db4d2433cf454ee7a531eb34ba71a837";
 
 async function fetchNews() {
   console.log("fetching news ...")
